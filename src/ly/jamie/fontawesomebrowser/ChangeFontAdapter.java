@@ -53,16 +53,18 @@ public class ChangeFontAdapter extends BaseAdapter {
 			convertView = vi.inflate(R.layout.icon_row, null);
 		}
 		
-		textViewIconName = (TextView) convertView.findViewById(R.id.textViewIconName);
-		textViewIcon = (TextView) convertView.findViewById(R.id.textViewIcon);
+		textViewIconName = (TextView) convertView.findViewById(R.id.textViewIcon);
+		textViewIconName.setText(getKey(position));
+		
+		textViewIcon = (TextView) convertView.findViewById(R.id.textViewIconName);
 		if(firstInitialization) {
 			textViewIcon.setTypeface(_typeface);
 			textViewIcon.setTextSize(30);
 		}
 		
-		textViewIconName.setText(getKey(position));
-		textViewIcon.setText((String) getItem(position));
 		
+		textViewIcon.setText((String) getItem(position));
+
 		return convertView;
 	}
 }

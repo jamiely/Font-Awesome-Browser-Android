@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" >
 
     <TextView
-        android:id="@+id/textViewIconName"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewIcon"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:text="Icon name"
+        android:text="icon"
+        android:padding="10dip"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textViewIcon"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewIconName"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.10"
-        android:duplicateParentState="true"
-        android:text="blah"
+        android:text="icon name"
+        android:padding="10dip"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
+    
 </LinearLayout>
