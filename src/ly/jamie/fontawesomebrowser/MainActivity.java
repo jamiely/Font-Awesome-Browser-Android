@@ -1,32 +1,16 @@
 package ly.jamie.fontawesomebrowser;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.List;
 import java.util.Map;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.ListActivity;
-import android.content.Context;
-import android.database.Cursor;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.Menu;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
