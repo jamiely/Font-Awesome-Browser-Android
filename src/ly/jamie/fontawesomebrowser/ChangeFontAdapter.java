@@ -4,6 +4,7 @@ import java.util.Map;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -27,24 +28,41 @@ public class ChangeFontAdapter extends BaseAdapter {
 	}
 
 	public Object getItem(int position) {
-		return _strings.get(_keys[position]);
+		return _strings.get(getKey(position));
 	}
 
 	public long getItemId(int position) {
 		return position;
 	}
+	
+	public String getKey(int position) {
+		return _keys[position];
+	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		TextView tv = null;
+		TextView textViewIconName, textViewIcon;
+		boolean firstInitialization = false;
+		
 		if(convertView != null && convertView.getClass() == TextView.class) {
-			tv = (TextView) convertView;
+			// do nothing
 		}
 		else {
-			tv = new TextView(_context);
-			tv.setTypeface(_typeface);
-			tv.setTextSize(30);
+			firstInitialization = true;
+			
+			LayoutInflater vi = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			convertView = vi.inflate(R.layout.icon_row, null);
 		}
-		tv.setText((String) getItem(position));
-		return tv;
+		
+		textViewIconName = (TextView) convertView.findViewById(R.id.textViewIconName);
+		textViewIcon = (TextView) convertView.findViewById(R.id.textViewIcon);
+		if(firstInitialization) {
+			textViewIcon.setTypeface(_typeface);
+			textViewIcon.setTextSize(30);
+		}
+		
+		textViewIconName.setText(getKey(position));
+		textViewIcon.setText((String) getItem(position));
+		
+		return convertView;
 	}
 }
