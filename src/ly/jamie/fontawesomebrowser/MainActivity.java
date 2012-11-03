@@ -8,8 +8,12 @@ import java.util.Map;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 public class MainActivity extends Activity {
@@ -33,7 +37,7 @@ public class MainActivity extends Activity {
     // # Font loading and displaying functions
     
     protected void loadFont() {
-    	_awesome = Typeface.createFromAsset(getAssets(), "fontawesome-webfont.ttf");
+    	_awesome = TypefaceManager.FontAwesome(getAssets());
     	//getFontView().setTypeface(_awesome);
     	
     	Map<String, String> iconMap = new Hashtable<String, String>();
@@ -56,8 +60,17 @@ public class MainActivity extends Activity {
 		}
     	
     	ListView lv = (ListView) findViewById(R.id.fontListView);
-    	lv.setAdapter(new ChangeFontAdapter(this, iconMap, _awesome));
-    	
+    	final ChangeFontAdapter fontAdapter = new ChangeFontAdapter(this, iconMap, _awesome);
+    	lv.setAdapter(fontAdapter);
+    	lv.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
+				Intent iconIntent = new Intent(parent.getContext(), IconActivity.class);
+				iconIntent.putExtra("ICON_NAME", fontAdapter.getKey(position));
+				iconIntent.putExtra("ICON", fontAdapter.getIcon(position));
+				startActivity(iconIntent);
+			}
+		});
     }
     
     

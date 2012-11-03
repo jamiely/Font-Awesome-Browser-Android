@@ -8,7 +8,7 @@
         android:id="@+id/textViewIcon"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:text="icon"
+        android:text="ico"
         android:padding="10dip"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 

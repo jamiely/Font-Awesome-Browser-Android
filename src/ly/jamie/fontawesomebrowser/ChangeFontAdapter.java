@@ -40,6 +40,10 @@ public class ChangeFontAdapter extends BaseAdapter {
 	public String getKey(int position) {
 		return _keys[position];
 	}
+	
+	public String getIcon(int position) {
+		return (String) getItem(position);
+	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		TextView textViewIconName, textViewIcon;
