@@ -1,5 +1,6 @@
 package ly.jamie.fontawesomebrowser;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import android.content.Context;
@@ -21,6 +22,7 @@ public class ChangeFontAdapter extends BaseAdapter {
 		_context = context;
 		_typeface = typeface;
 		_keys = strings.keySet().toArray(new String[_strings.size()]);
+		Arrays.sort(_keys);
 	}
 	
 	public int getCount() {
