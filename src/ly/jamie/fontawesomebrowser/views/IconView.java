@@ -28,6 +28,10 @@ public class IconView extends View {
 		this(context, null, 0);
 	}
 	
+	public IconView(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
+	}
+	
 	public IconView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		

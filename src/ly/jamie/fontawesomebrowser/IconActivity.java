@@ -51,17 +51,10 @@ public class IconActivity extends Activity
         textViewIcon.setTypeface(awesomeTypeface);
         textViewIcon.setTextSize(50);
         
-        //iconView = (IconView) findViewById(R.id.icon_view);
-        //iconView.setTypeface(awesomeTypeface);
-        iconView = new IconView(this);
+        iconView = (IconView) findViewById(R.id.iconView);
         iconView.setTypeface(awesomeTypeface);
         iconView.setIcon(icon);
-        
-        LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayoutIcon);
-        layout.addView(iconView);
-        
-        //addContentView(iconView, null);
-        
+   
         // the icon name
         textViewIconName = (TextView) findViewById(R.id.textViewIconName);
         textViewIconName.setText(iconName);	

@@ -5,6 +5,12 @@
     android:id="@+id/linearLayoutIcon"
     android:orientation="vertical" >
 
+    <ly.jamie.fontawesomebrowser.views.IconView
+        android:id="@+id/iconView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+     
     <TextView
         android:id="@+id/textViewIcon"
         android:layout_width="wrap_content"
