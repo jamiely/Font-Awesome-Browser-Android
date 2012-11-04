@@ -1,10 +1,17 @@
-package ly.jamie.fontawesomebrowser;
+package ly.jamie.fontawesomebrowser.activities;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Hashtable;
 import java.util.Map;
+
+import ly.jamie.fontawesomebrowser.ChangeFontAdapter;
+import ly.jamie.fontawesomebrowser.R;
+import ly.jamie.fontawesomebrowser.TypefaceManager;
+import ly.jamie.fontawesomebrowser.R.id;
+import ly.jamie.fontawesomebrowser.R.layout;
+import ly.jamie.fontawesomebrowser.R.menu;
 
 import android.os.Bundle;
 import android.app.Activity;

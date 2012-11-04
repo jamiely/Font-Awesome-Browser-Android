@@ -1,9 +1,14 @@
-package ly.jamie.fontawesomebrowser;
+package ly.jamie.fontawesomebrowser.activities;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import ly.jamie.fontawesomebrowser.R;
+import ly.jamie.fontawesomebrowser.TypefaceManager;
+import ly.jamie.fontawesomebrowser.R.id;
+import ly.jamie.fontawesomebrowser.R.layout;
+import ly.jamie.fontawesomebrowser.R.menu;
 import ly.jamie.fontawesomebrowser.views.IconView;
 import android.os.Bundle;
 import android.os.Environment;
