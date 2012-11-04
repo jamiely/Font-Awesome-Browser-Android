@@ -124,5 +124,6 @@ public class IconView extends View {
 		// bounds will now contain the appropriate size for the view
 		setMinimumHeight(bounds.height());
 		setMinimumWidth(bounds.width());
+		requestLayout();
 	}
 }

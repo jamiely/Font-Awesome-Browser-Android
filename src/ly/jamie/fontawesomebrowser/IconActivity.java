@@ -83,7 +83,6 @@ public class IconActivity extends Activity
 					progress = 5;
 				}
 				iconView.matchWidth(progress);
-				iconView.requestLayout();
 			}
 			
 			public void onStartTrackingTouch(SeekBar seekBar) {
