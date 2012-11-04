@@ -1,52 +1,56 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollViewIcon"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/linearLayoutIcon"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    <ly.jamie.fontawesomebrowser.views.IconView
-        android:id="@+id/iconView"
+    <LinearLayout
+        android:id="@+id/linearLayoutIcon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textViewIconName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Icon Name"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-    
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/label_icon_width"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <ly.jamie.fontawesomebrowser.views.IconView
+            android:id="@+id/iconView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <SeekBar
-        android:id="@+id/seekBarWidth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    
-     <TextView
-         android:id="@+id/textView2"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="@string/label_icon_color"
-         android:textAppearance="?android:attr/textAppearanceLarge" />
+        <TextView
+            android:id="@+id/textViewIconName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Icon Name"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <afzkl.development.mColorPicker.views.ColorPanelView
-		android:id="@+id/color_panel"
-		android:layout_width="wrap_content"
- 	 	android:layout_height="30dp" />
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_icon_width"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/buttonExport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Export" />
-    
-</LinearLayout>
+        <SeekBar
+            android:id="@+id/seekBarWidth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_icon_color"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <afzkl.development.mColorPicker.views.ColorPanelView
+            android:id="@+id/color_panel"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/buttonExport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Export" />
+    </LinearLayout>
+
+</ScrollView>
