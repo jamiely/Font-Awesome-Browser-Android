@@ -18,7 +18,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -28,7 +27,6 @@ public class IconActivity extends Activity
 	implements DialogInterface.OnClickListener {
 	ColorPickerDialog colorPicker;
 	ColorPanelView colorPanel;
-	TextView textViewIcon;
 	TextView textViewIconName;
 	IconView iconView;
 	SeekBar seekBarWidth;
@@ -44,12 +42,6 @@ public class IconActivity extends Activity
         Bundle extras = getIntent().getExtras();
         String icon = extras.getString("ICON"),
         		iconName = extras.getString("ICON_NAME");
-        
-        // set the icon
-        textViewIcon = (TextView) findViewById(R.id.textViewIcon);
-        textViewIcon.setText(icon);
-        textViewIcon.setTypeface(awesomeTypeface);
-        textViewIcon.setTextSize(50);
         
         iconView = (IconView) findViewById(R.id.iconView);
         iconView.setTypeface(awesomeTypeface);
@@ -137,7 +129,6 @@ public class IconActivity extends Activity
     
     public void setColor(int color) {
     	colorPanel.setColor(color);
-		textViewIcon.setTextColor(color);
 		iconView.setColor(color);
     }
 }
