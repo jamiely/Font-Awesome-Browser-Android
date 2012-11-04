@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.View.MeasureSpec;
 
 public class IconView extends View {
 	
@@ -46,13 +47,26 @@ public class IconView extends View {
 		
 		// text
 		mColorPaint.setColor(mColor);
-		canvas.drawText(mIcon, 0, 100, mColorPaint);
+		canvas.drawText(mIcon, 0, mRectBackground.height(), mColorPaint);
 	}
 	
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		int padding = 10;
 		super.onSizeChanged(w + padding, h + padding, oldw, oldh);
+	}
+	
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+		int width = mRectBackground.width();
+		int height = mRectBackground.height();
+		if(width < getSuggestedMinimumWidth()) {
+			width = getSuggestedMinimumWidth();
+		}
+		if(height < getSuggestedMinimumHeight()) {
+			height = getSuggestedMinimumHeight();
+		}
+		setMeasuredDimension(width, height);
 	}
 	
 	public void setColor(int color) {
@@ -99,7 +113,7 @@ public class IconView extends View {
 			count ++;
 		} while(count < limit && diff > tolerance && (upper - lower) > 2);
 
-		setupBounds(bounds);
+		setupBounds(new Rect(0, 0, bounds.width(), bounds.height()));
 		
 		invalidate();
 	}
