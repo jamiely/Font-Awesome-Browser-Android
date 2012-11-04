@@ -22,8 +22,18 @@ public class IconView extends View {
 	Typeface mTypeface;
 	
 	Rect mRectBackground;
+	
+	boolean mDrawBackground = true;
 
 	
+	public boolean shouldDrawBackground() {
+		return mDrawBackground;
+	}
+
+	public void setDrawBackground(boolean drawBackground) {
+		this.mDrawBackground = drawBackground;
+	}
+
 	public IconView(Context context) {
 		this(context, null, 0);
 	}
@@ -48,7 +58,9 @@ public class IconView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		// background
-		canvas.drawRect(mRectBackground, mBackPaint);
+		if(shouldDrawBackground()) {
+			canvas.drawRect(mRectBackground, mBackPaint);
+		}
 		
 		// text
 		mColorPaint.setColor(mColor);
@@ -135,7 +147,9 @@ public class IconView extends View {
 	public Bitmap getIconBitmap() {
 		Bitmap bitmap = Bitmap.createBitmap(mRectBackground.width(), mRectBackground.height(), Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
+		setDrawBackground(false);
 		draw(canvas);
+		setDrawBackground(true);
 		return bitmap; 
 	}
 }
