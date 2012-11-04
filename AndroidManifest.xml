@@ -14,8 +14,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activities.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:name=".activities.FontListActivity"
+            android:label="@string/title_activity_fontlist" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
