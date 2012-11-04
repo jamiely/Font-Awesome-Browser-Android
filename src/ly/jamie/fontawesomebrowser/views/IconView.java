@@ -1,6 +1,7 @@
 package ly.jamie.fontawesomebrowser.views;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -125,5 +126,12 @@ public class IconView extends View {
 		setMinimumHeight(bounds.height());
 		setMinimumWidth(bounds.width());
 		requestLayout();
+	}
+	
+	public Bitmap getIconBitmap() {
+		Bitmap bitmap = Bitmap.createBitmap(mRectBackground.width(), mRectBackground.height(), Bitmap.Config.ARGB_8888);
+		Canvas canvas = new Canvas(bitmap);
+		draw(canvas);
+		return bitmap; 
 	}
 }

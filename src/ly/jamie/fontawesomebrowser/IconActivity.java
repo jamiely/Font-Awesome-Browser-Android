@@ -1,19 +1,28 @@
 package ly.jamie.fontawesomebrowser;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
 import ly.jamie.fontawesomebrowser.views.IconView;
 import android.os.Bundle;
+import android.os.Environment;
 import afzkl.development.mColorPicker.views.ColorPanelView;
 import afzkl.development.mColorPicker.ColorPickerDialog;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.Bitmap.CompressFormat;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import android.util.Log;
 
 public class IconActivity extends Activity
 	implements DialogInterface.OnClickListener {
@@ -23,6 +32,7 @@ public class IconActivity extends Activity
 	TextView textViewIconName;
 	IconView iconView;
 	SeekBar seekBarWidth;
+	Button buttonExport;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,6 +102,28 @@ public class IconActivity extends Activity
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				// only update when we're done
+			}
+		});
+        
+        buttonExport = (Button) findViewById(R.id.buttonExport);
+        buttonExport.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Bitmap iconBitmap = iconView.getIconBitmap();
+				File downloadsPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+				if(!downloadsPath.exists()) {
+					downloadsPath.mkdir();
+				}
+				File outFile = new File(downloadsPath, "new.png");
+				FileOutputStream fos;
+				try {
+					fos = new FileOutputStream(outFile);
+					iconBitmap.compress(CompressFormat.PNG, 100, fos);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					Log.e("IconActivity", e.getMessage());
+				}
+				
 			}
 		});
         

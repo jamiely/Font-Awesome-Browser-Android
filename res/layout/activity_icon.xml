@@ -43,5 +43,11 @@
 		android:id="@+id/color_panel"
 		android:layout_width="wrap_content"
  	 	android:layout_height="30dp" />
+
+    <Button
+        android:id="@+id/buttonExport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Export" />
     
 </LinearLayout>
