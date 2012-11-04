@@ -28,7 +28,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <SeekBar
-        android:id="@+id/seekBar1"
+        android:id="@+id/seekBarWidth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     

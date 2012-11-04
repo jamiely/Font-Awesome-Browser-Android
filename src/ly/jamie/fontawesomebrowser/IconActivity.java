@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 public class IconActivity extends Activity
@@ -20,6 +22,7 @@ public class IconActivity extends Activity
 	TextView textViewIcon;
 	TextView textViewIconName;
 	IconView iconView;
+	SeekBar seekBarWidth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +71,27 @@ public class IconActivity extends Activity
         colorPicker.setButton2("Cancel", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				colorPicker.hide();
+			}
+		});
+        
+        seekBarWidth = (SeekBar) findViewById(R.id.seekBarWidth);
+        seekBarWidth.setMax(400);
+        seekBarWidth.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				int progress = seekBar.getProgress();
+				if(progress < 5) {
+					progress = 5;
+				}
+				iconView.matchWidth(progress);
+			}
+			
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// do nothing	
+			}
+			
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				// only update when we're done
 			}
 		});
         
