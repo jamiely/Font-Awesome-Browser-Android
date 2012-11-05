@@ -3,6 +3,7 @@ package ly.jamie.fontawesomebrowser.activities;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 import ly.jamie.fontawesomebrowser.R;
 import ly.jamie.fontawesomebrowser.TypefaceManager;
@@ -10,12 +11,14 @@ import ly.jamie.fontawesomebrowser.R.id;
 import ly.jamie.fontawesomebrowser.R.layout;
 import ly.jamie.fontawesomebrowser.R.menu;
 import ly.jamie.fontawesomebrowser.views.IconView;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import afzkl.development.mColorPicker.views.ColorPanelView;
 import afzkl.development.mColorPicker.ColorPickerDialog;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.Bitmap.CompressFormat;
@@ -37,6 +40,12 @@ public class IconActivity extends Activity
 	IconView iconView;
 	SeekBar seekBarWidth;
 	Button buttonExport;
+	
+	String icon;
+	String iconName;
+	
+	static String exportedIconName = "font-awesome-browser-exported-icon.png";
+    
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,8 +55,8 @@ public class IconActivity extends Activity
         Typeface awesomeTypeface = TypefaceManager.FontAwesome(getAssets());
      
         Bundle extras = getIntent().getExtras();
-        String icon = extras.getString("ICON"),
-        		iconName = extras.getString("ICON_NAME");
+        icon = extras.getString("ICON");
+        iconName = extras.getString("ICON_NAME");
         
         iconView = (IconView) findViewById(R.id.iconView);
         iconView.setTypeface(awesomeTypeface);
@@ -115,16 +124,32 @@ public class IconActivity extends Activity
 		if(!downloadsPath.exists()) {
 			downloadsPath.mkdir();
 		}
-		File outFile = new File(downloadsPath, "new.png");
+		File outFile = new File(downloadsPath, exportedIconName);
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream(outFile);
 			iconBitmap.compress(CompressFormat.PNG, 100, fos);
+			fos.close();
+			
+			emailIcon(outFile);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Log.e("IconActivity", e.getMessage());
+		} catch (IOException e) {
 			e.printStackTrace();
 			Log.e("IconActivity", e.getMessage());
 		}
+    }
+    
+    protected void emailIcon(File iconFile) {
+    	Uri fileUri = Uri.fromFile(iconFile);
+    	Intent intent = new Intent(Intent.ACTION_SEND);
+    	intent.setType("text/plain");
+    	intent.putExtra(Intent.EXTRA_EMAIL, new String[] {""});
+    	intent.putExtra(Intent.EXTRA_SUBJECT, "[FontAwesomeBrowser] Icon" + iconName);
+    	intent.putExtra(Intent.EXTRA_TEXT, "Here's the exported icon.");
+    	intent.putExtra(Intent.EXTRA_STREAM, fileUri);
+    	startActivity(Intent.createChooser(intent, "Send email..."));
     }
     
     protected void setIconWidth(int width){
