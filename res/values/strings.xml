@@ -1,13 +1,13 @@
 <resources>
 
-    <string name="app_name">FontAwesomeBrowser</string>
+    <string name="app_name">Font Awesome Browser</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_fontlist">FontAwesome Browser</string>
     <string name="title_activity_icon">Icon</string>
     <string name="label_icon_width">Icon Width</string>
     <string name="label_icon_color">Icon Color</string>
-    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_menu">Font Awesome Browser</string>
     <string name="credits">Font Awesome - http://fortawesome.github.com/Font-Awesome</string>
     <string name="button_contact">Contact</string>
     <string name="button_browse">Browse</string>
