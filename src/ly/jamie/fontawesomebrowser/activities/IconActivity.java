@@ -33,6 +33,7 @@ public class IconActivity extends Activity
 	ColorPickerDialog colorPicker;
 	ColorPanelView colorPanel;
 	TextView textViewIconName;
+	TextView textViewIconWidth;
 	IconView iconView;
 	SeekBar seekBarWidth;
 	Button buttonExport;
@@ -55,6 +56,8 @@ public class IconActivity extends Activity
         // the icon name
         textViewIconName = (TextView) findViewById(R.id.textViewIconName);
         textViewIconName.setText(iconName);	
+        
+        textViewIconWidth = (TextView) findViewById(R.id.textViewIconWidth);
         
         // create the color panel
         colorPanel = (ColorPanelView) findViewById(R.id.color_panel);
@@ -82,7 +85,7 @@ public class IconActivity extends Activity
 				if(progress < 5) {
 					progress = 5;
 				}
-				iconView.matchWidth(progress);
+				setIconWidth(progress);
 			}
 			
 			public void onStartTrackingTouch(SeekBar seekBar) {
@@ -119,6 +122,12 @@ public class IconActivity extends Activity
         
         // initialize other stuff
         setColor(0xffFF0000);
+    }
+    
+    protected void setIconWidth(int width){
+    	iconView.matchWidth(width);
+		textViewIconWidth.setText(getString(R.string.label_icon_width) 
+			+ ": " + iconView.getWidth());
     }
 
     @Override
