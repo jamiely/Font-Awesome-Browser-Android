@@ -101,27 +101,30 @@ public class IconActivity extends Activity
         buttonExport = (Button) findViewById(R.id.buttonExport);
         buttonExport.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Bitmap iconBitmap = iconView.getIconBitmap();
-				File downloadsPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-				if(!downloadsPath.exists()) {
-					downloadsPath.mkdir();
-				}
-				File outFile = new File(downloadsPath, "new.png");
-				FileOutputStream fos;
-				try {
-					fos = new FileOutputStream(outFile);
-					iconBitmap.compress(CompressFormat.PNG, 100, fos);
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					Log.e("IconActivity", e.getMessage());
-				}
-				
+				exportIcon();
 			}
 		});
         
         // initialize other stuff
         setColor(0xffFF0000);
+    }
+    
+    protected void exportIcon() {
+    	Bitmap iconBitmap = iconView.getIconBitmap();
+		File downloadsPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+		if(!downloadsPath.exists()) {
+			downloadsPath.mkdir();
+		}
+		File outFile = new File(downloadsPath, "new.png");
+		FileOutputStream fos;
+		try {
+			fos = new FileOutputStream(outFile);
+			iconBitmap.compress(CompressFormat.PNG, 100, fos);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Log.e("IconActivity", e.getMessage());
+		}
     }
     
     protected void setIconWidth(int width){
