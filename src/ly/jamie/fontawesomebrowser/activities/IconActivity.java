@@ -126,8 +126,7 @@ public class IconActivity extends Activity
     
     protected void setIconWidth(int width){
     	iconView.matchWidth(width);
-		textViewIconWidth.setText(getString(R.string.label_icon_width) 
-			+ ": " + iconView.getWidth());
+		textViewIconWidth.setText(getString(R.string.label_icon_width) + ": " + width);
     }
 
     @Override

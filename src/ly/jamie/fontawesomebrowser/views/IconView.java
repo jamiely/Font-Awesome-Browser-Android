@@ -106,29 +106,17 @@ public class IconView extends View {
 	public void matchWidth(int width) {
 		Rect bounds = new Rect();
 		
-		int diff = 100,
-			tolerance = 2,
-			upper = 500,
-			lower = 10,
-			textSize = (int) upper/lower,
-			limit = 100,
-			count = 0;
+		int textSize = 5,
+			boundsWidth = 0;
 		
 		do {
-			mColorPaint.getTextBounds(mIcon, 0, mIcon.length(), bounds);
-			int boundsWidth = bounds.width();
-			if(boundsWidth > width) {
-				upper = textSize;
-			}
-			else {
-				lower = textSize;
-			}
-			textSize = (upper - lower) / 2 + lower;
 			mColorPaint.setTextSize(textSize);
-			Log.i("IconView", "text size = " + textSize);
-			diff = Math.abs(boundsWidth - width);
-			count ++;
-		} while(count < limit && diff > tolerance && (upper - lower) > 2);
+			
+			mColorPaint.getTextBounds(mIcon, 0, mIcon.length(), bounds);
+			boundsWidth = bounds.width();
+			
+			textSize++;
+		} while(boundsWidth < width);
 
 		setupBounds(new Rect(0, 0, bounds.width(), bounds.height()));
 		
