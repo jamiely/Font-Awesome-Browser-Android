@@ -8,8 +8,9 @@
     <string name="label_icon_width">Icon Width</string>
     <string name="label_icon_color">Icon Color</string>
     <string name="title_activity_menu">Font Awesome Browser</string>
-    <string name="credits">Font Awesome - http://fortawesome.github.com/Font-Awesome</string>
+    <string name="credits">Font Awesome\nhttp://fortawesome.github.com/Font-Awesome</string>
     <string name="button_contact">Contact</string>
     <string name="button_browse">Browse</string>
+    <string name="button_export">Export</string>
 
 </resources>

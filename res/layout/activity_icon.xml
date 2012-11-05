@@ -7,19 +7,8 @@
     <LinearLayout
         android:id="@+id/linearLayoutIcon"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
-
-        <FrameLayout
-            android:id="@+id/frameLayoutIcon"
-            android:layout_width="350px"
-            android:layout_height="350px">
-
-            <ly.jamie.fontawesomebrowser.views.IconView
-                android:id="@+id/iconView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </FrameLayout>
 
         <TextView
             android:id="@+id/textViewIconName"
@@ -27,6 +16,18 @@
             android:layout_height="wrap_content"
             android:text="Icon Name"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <FrameLayout
+            android:id="@+id/frameLayoutIcon"
+            android:layout_width="350px"
+            android:layout_height="400px">
+
+            <ly.jamie.fontawesomebrowser.views.IconView
+                android:id="@+id/iconView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
 
         <TextView
             android:id="@+id/textViewIconWidth"
@@ -56,7 +57,7 @@
             android:id="@+id/buttonExport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Export" />
+            android:text="@string/button_export" />
     </LinearLayout>
 
 </ScrollView>
