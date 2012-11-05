@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MenuActivity extends Activity
 	implements OnClickListener {
@@ -37,18 +38,26 @@ public class MenuActivity extends Activity
         getMenuInflater().inflate(R.menu.activity_menu, menu);
         return true;
     }
+    
+    public void sendContactEmail() {
+    	Intent i = new Intent(Intent.ACTION_SEND);
+    	i.setType("message/rfc822");
+    	i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"Font Awesome Browser <font_awesome_browser@angelforge.org>"});
+    	i.putExtra(Intent.EXTRA_SUBJECT, "[FontAwesomeBrowser] Suggestion");
+    	i.putExtra(Intent.EXTRA_TEXT   , "I'd like to make a suggestion:\n");
+    	try {
+    	    startActivity(Intent.createChooser(i, "Send mail..."));
+    	} catch (android.content.ActivityNotFoundException ex) {
+    	    Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+    	}
+    }
 
 	public void onClick(View v) {
-		Class nextActivity = null;
 		if(v == buttonContact) {
-			nextActivity = null;
+			sendContactEmail();
 		}
 		else if(v == buttonBrowse) {
-			nextActivity = FontListActivity.class;
-		}
-		
-		if(nextActivity != null) {
-			startActivity(new Intent(this, nextActivity));
+			startActivity(new Intent(this, FontListActivity.class));
 		}
 	}
 }
