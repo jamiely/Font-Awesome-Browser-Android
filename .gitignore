@@ -5,3 +5,5 @@ bin/
 gen/
 libs/
 proguard-project.txt
+.DS_Store
+
