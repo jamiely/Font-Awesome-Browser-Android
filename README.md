@@ -4,6 +4,9 @@ Intro
 This is a browser to look through the
 [Font Awesome](http://fortawesome.github.com/Font-Awesome/) font catalogue.
 
+It will be available in the Google Play Store at:
+https://play.google.com/store/apps/details?id=ly.jamie.fontawesomebrowser
+
 Features
 ========
 
