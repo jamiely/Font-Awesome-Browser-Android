@@ -6,6 +6,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutIcon"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -14,13 +16,13 @@
             android:id="@+id/textViewIconName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Icon Name"
+            android:text="@string/label_icon_name"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         
         <FrameLayout
             android:id="@+id/frameLayoutIcon"
-            android:layout_width="350px"
-            android:layout_height="400px">
+            android:layout_width="300dp"
+            android:layout_height="250dp">
 
             <ly.jamie.fontawesomebrowser.views.IconView
                 android:id="@+id/iconView"

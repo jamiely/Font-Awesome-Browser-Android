@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#b6f4ea"
     android:orientation="vertical" >
 
     <TextView
@@ -13,33 +14,50 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ImageView
+        android:contentDescription="@string/icon_description"
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/font_awesome_icon" />
 
-    <Button
-        android:id="@+id/buttonBrowse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/button_browse" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-    <Button
-        android:id="@+id/buttonContact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/button_contact" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="38dp"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@+id/buttonBrowse" >
+		
+		<Button
+            android:id="@+id/buttonBrowse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_browse" />
+        
+        <Button
+            android:id="@+id/buttonContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_contact" />
+            
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textViewAbout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/credits"
+        android:gravity="center"
         android:lines="2"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="@string/credits"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="8dp" />
 
 </LinearLayout>
