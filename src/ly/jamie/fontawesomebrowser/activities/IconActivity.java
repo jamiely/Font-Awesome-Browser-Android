@@ -146,7 +146,7 @@ public class IconActivity extends Activity
     	Intent intent = new Intent(Intent.ACTION_SEND);
     	intent.setType("text/plain");
     	intent.putExtra(Intent.EXTRA_EMAIL, new String[] {""});
-    	intent.putExtra(Intent.EXTRA_SUBJECT, "[FontAwesomeBrowser] Icon" + iconName);
+    	intent.putExtra(Intent.EXTRA_SUBJECT, "[FontAwesomeBrowser] Icon " + iconName);
     	intent.putExtra(Intent.EXTRA_TEXT, "Here's the exported icon.");
     	intent.putExtra(Intent.EXTRA_STREAM, fileUri);
     	startActivity(Intent.createChooser(intent, "Send email..."));
